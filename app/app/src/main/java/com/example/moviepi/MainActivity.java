@@ -7,13 +7,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.List;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText Name;
     private EditText Password;
     private Button Login;
+    private TextView Register;
     private TextView Invalid;
+    private static List<String> Username = new ArrayList<String>();
+    private static List<String> Passwords = new ArrayList<String>();
 
 
 
@@ -22,11 +28,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Username.add("Admin");
+        Passwords.add("1234");
         Name = (EditText) findViewById(R.id.etName);
         Password = (EditText) findViewById(R.id.etPassword);
         Login = (Button) findViewById(R.id.btnLogin);
+        Register = (TextView) findViewById(R.id.btnRegister);
         Invalid = (TextView) findViewById(R.id.tvInvalid);
 
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            Invalid.setText("");
+            }
+        });
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,12 +53,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword) {
-        if ((userName.equals("Admin")) && (userPassword.equals("1234"))) {
+        if ((Username.contains(userName)) && (Passwords.contains(userPassword))) {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
             Invalid.setText("");
         } else {
             Invalid.setText("Invalid Password or Username");
         }
+    }
+
+    public static List<String> getUsernames(){
+        return Username;
+    }
+
+    public static List<String> getPasswords(){
+        return Passwords;
+    }
+
+    public static void setUsernames(String username){
+        Username.add(username);
+        System.out.println(Username);
+    }
+
+    public static void setPasswords(String password){
+        Passwords.add(password);
     }
 }
