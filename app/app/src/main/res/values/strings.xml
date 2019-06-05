@@ -6,4 +6,11 @@
     <string name="title_notifications">Notifications</string>
     <string name="etName">Username</string>
     <string name="etPassword">Password</string>
+    <string name="search">Search</string>
+    <string-array name="Movies">
+        <item>LOL</item>
+        <item>Mdr</item>
+        <item>xss</item>
+        <item>suite</item>
+    </string-array>
 </resources>

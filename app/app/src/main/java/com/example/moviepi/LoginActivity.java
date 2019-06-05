@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText Name;
     private EditText Password;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         Username.add("Admin");
         Passwords.add("1234");
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
             Invalid.setText("");
             }
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void validate(String userName, String userPassword) {
         if ((Username.contains(userName)) && (Passwords.contains(userPassword))) {
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Intent intent = new Intent(LoginActivity.this, BrowseMoviesActivity.class);
             startActivity(intent);
             Invalid.setText("");
         } else {
