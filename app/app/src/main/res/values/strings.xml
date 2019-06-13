@@ -7,10 +7,34 @@
     <string name="etName">Username</string>
     <string name="etPassword">Password</string>
     <string name="search">Search</string>
+    
+    <string-array name="SearchType">
+        <item>By Name</item>
+        <item>By Category</item>
+        <item>By Director</item>
+        <item>By Actor</item>
+    </string-array>
     <string-array name="Movies">
         <item>LOL</item>
         <item>Mdr</item>
         <item>xss</item>
         <item>suite</item>
     </string-array>
+    <string-array name="Directors">
+        <item>Gérard</item>
+        <item>Mouloud</item>
+        <item>JE</item>
+        <item>HICHOU</item>
+    </string-array>
+    <string-array name="Actors">
+        <item>Me</item>
+        <item>you</item>
+        <item>grr</item>
+    </string-array>
+    <string-array name="Categories">
+        <item>fun</item>
+        <item>family</item>
+        <item>history</item>
+    </string-array>
+
 </resources>
